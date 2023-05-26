@@ -2,11 +2,6 @@
 
 namespace Pizzeria.Api.Repositories
 {
-    public interface IRestaurantRepository
-    {
-        public Restaurant Get(int id);
-    }
-
     public class RestaurantRepository : IRestaurantRepository
     {
         private static List<Restaurant> _restaurants = new List<Restaurant>
@@ -27,6 +22,5 @@ namespace Pizzeria.Api.Repositories
         {
             return _restaurants.SingleOrDefault(r => r.Id == id);
         }
-
     }
 }

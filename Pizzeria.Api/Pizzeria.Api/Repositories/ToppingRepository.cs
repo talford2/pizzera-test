@@ -2,10 +2,7 @@
 
 namespace Pizzeria.Api.Repositories
 {
-    public interface IToppingRepository
-    {
-        public Topping Get(int id);
-    }
+
 
     public class ToppingRepository : IToppingRepository
     {

@@ -2,13 +2,6 @@
 
 namespace Pizzeria.Api.Repositories
 {
-    public interface IRestaurantPizzaPriceRepository
-    {
-        public RestaurantPizzaPrice GetPizza(int restaurantId, int pizzaId);
-
-        public IEnumerable<RestaurantPizzaPrice> GetMenu(int restaurantId);
-    }
-
     public class RestaurantPizzaPriceRepository : IRestaurantPizzaPriceRepository
     {
         private static List<RestaurantPizzaPrice> _restaurantPizzaPrices = new List<RestaurantPizzaPrice>
