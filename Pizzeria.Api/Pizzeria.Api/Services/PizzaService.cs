@@ -3,11 +3,6 @@ using Pizzeria.Api.Repositories;
 
 namespace Pizzeria.Api.Services
 {
-    public interface IPizzaService
-    {
-        public IEnumerable<RestaurantPizzaPrice> GetPizzasForLocation(int restaurantId);
-    }
-
     public class PizzaService : IPizzaService
     {
         private readonly IRestaurantPizzaPriceRepository _restaurantPizzaPriceRepository;

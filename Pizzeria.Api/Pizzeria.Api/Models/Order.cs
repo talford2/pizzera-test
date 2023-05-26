@@ -6,7 +6,7 @@ namespace Pizzeria.Api.Models
     {
         public int RestaurantId { get; set; }
 
-        public List<PizzaOrder> PizzaOrders { get; set; }
+        public IEnumerable<PizzaOrder> PizzaOrders { get; set; }
 
         public decimal CalculateTotalCost()
         {
@@ -18,7 +18,7 @@ namespace Pizzeria.Api.Models
     {
         public int PizzaId { get; set; }
 
-        public List<int> ToppingIds { get; set; }
+        public IEnumerable<int> ToppingIds { get; set; }
 
         private readonly IRestaurantPizzaPriceRepository _restaurantPizzaPriceRepo;
         private readonly IToppingRepository _toppingRepository;
