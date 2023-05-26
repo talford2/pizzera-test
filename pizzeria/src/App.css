@@ -9,7 +9,6 @@ header > h1 {
   text-align: center;
   margin: 0;
   padding: 30px;
-
 }
 
 header nav {
@@ -31,4 +30,5 @@ header nav > ul > li {
 section {
   max-width: 1000px;
   margin: auto;
+  padding: 20px;
 }

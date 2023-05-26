@@ -5,5 +5,7 @@ namespace Pizzeria.Repository
     public interface IRestaurantRepository
     {
         public RestaurantDto? Get(int id);
+
+        public IEnumerable<RestaurantDto> GetAll();
     }
 }

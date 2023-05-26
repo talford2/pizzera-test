@@ -30,6 +30,7 @@ builder.Services.AddSingleton<IRestaurantPizzaPriceRepository, RestaurantPizzaPr
 builder.Services.AddSingleton<IRestaurantRepository, RestaurantRepository>();
 builder.Services.AddSingleton<IToppingRepository, ToppingRepository>();
 builder.Services.AddSingleton<IPizzaService, PizzaService>();
+builder.Services.AddSingleton<IRestaurantService, RestaurantService>();
 
 var app = builder.Build();
 app.UseCors(CorsPolicyName);

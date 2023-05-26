@@ -22,5 +22,10 @@ namespace Pizzeria.Repository
         {
             return _restaurants.SingleOrDefault(r => r.Id == id);
         }
+
+        public IEnumerable<RestaurantDto> GetAll()
+        {
+            return _restaurants;
+        }
     }
 }

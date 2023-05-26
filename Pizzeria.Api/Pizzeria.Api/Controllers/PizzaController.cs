@@ -5,7 +5,7 @@ using Pizzeria.Business.Services;
 namespace Pizzeria.Api.Controllers
 {
     [ApiController]
-    [Route("[controller]/[action]")]
+    //[Route("[controller]/[action]")]
     public class PizzaController : ControllerBase
     {
         private readonly IPizzaService _pizzaService;
@@ -15,7 +15,7 @@ namespace Pizzeria.Api.Controllers
             _pizzaService = pizzaService;
         }
 
-        [HttpGet]
+        [HttpGet("restaurant/{restaurantId}/pizza")]
         public IEnumerable<Pizza> GetMenu(int restaurantId)
         {
             return _pizzaService.GetMenu(restaurantId);

@@ -2,6 +2,7 @@ import './App.css';
 import { Link, Route, Routes } from 'react-router-dom';
 import { HomePage } from './Pages/HomePage';
 import { RestaurantsPage } from './Pages/RestaurantsPage';
+import { RestaurantPage } from './Pages/RestaurantPage';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
     <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/restaurants" element={<RestaurantsPage />} />
+      <Route path="/restaurants/:id" element={<RestaurantPage />} />
     </Routes>
     </main>
   );
