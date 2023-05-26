@@ -1,4 +1,5 @@
 using Moq;
+using Pizzeria.Business.Exceptions;
 using Pizzeria.Business.Services;
 using Pizzeria.Repositories.Models;
 using Pizzeria.Repository;
@@ -8,8 +9,15 @@ namespace Pizzeria.UnitTests
     public class PizzaServiceTests
     {
         [Fact]
-        public void GetMenu_ReturnPizzaForRestaurantWithPizzaDetails()
+        public void GetMenu_WhenKnownRestaurantId_ReturnCorrectPizzaDetails()
         {
+            var restaurantRepo = new Mock<IRestaurantRepository>();
+            restaurantRepo.Setup(r => r.Get(100)).Returns(new RestaurantDto
+            {
+                Id = 100,
+                Location = "Fake"
+            });
+
             var restaurantPizzaPriceRepo = new Mock<IRestaurantPizzaPriceRepository>();
             restaurantPizzaPriceRepo.Setup(r => r.GetForRestaurant(100)).Returns(new List<RestaurantPizzaPriceDto>
             {
@@ -49,7 +57,7 @@ namespace Pizzeria.UnitTests
                 }
             });
 
-            var pizzaService = new PizzaService(restaurantPizzaPriceRepo.Object, pizzaRepo.Object);
+            var pizzaService = new PizzaService(restaurantRepo.Object, restaurantPizzaPriceRepo.Object, pizzaRepo.Object);
             var menu = pizzaService.GetMenu(100).ToArray();
 
             Assert.Equal(2, menu.Length);
@@ -65,6 +73,17 @@ namespace Pizzeria.UnitTests
             Assert.Equal(18.95m, menu[1].BasePrice);
             Assert.Equal("Pizza B", menu[1].Name);
             Assert.Equal(new string[] { "X", "Y" }, menu[1].BaseIngredients);
+        }
+
+        [Fact]
+        public void GetMenu_WhenUnknownRestaurantId_ThrowsException()
+        {
+            var restaurantRepo = new Mock<IRestaurantRepository>();
+            var restaurantPizzaPriceRepo = new Mock<IRestaurantPizzaPriceRepository>();
+            var pizzaRepo = new Mock<IPizzaRepository>();
+
+            var pizzaService = new PizzaService(restaurantRepo.Object, restaurantPizzaPriceRepo.Object, pizzaRepo.Object);
+            Assert.Throws<UnknownRestaurantException>(() => pizzaService.GetMenu(1111111111));
         }
     }
 }

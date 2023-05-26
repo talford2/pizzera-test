@@ -40,7 +40,7 @@ namespace Pizzeria.Repository
 
         public IEnumerable<RestaurantPizzaPriceDto> GetForRestaurant(int restaurantId)
         {
-            throw new NotImplementedException();
+            return _restaurantPizzaPrices.Where(p => p.RestaurantId == restaurantId);
         }
 
         public RestaurantPizzaPriceDto GetPizza(int restaurantId, int pizzaId)
