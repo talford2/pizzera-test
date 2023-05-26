@@ -1,36 +1,36 @@
-﻿using Pizzeria.Api.Models;
+﻿using Pizzeria.Repositories.Models;
 
-namespace Pizzeria.Api.Repositories
+namespace Pizzeria.Repositories
 {
     public class RestaurantPizzaPriceRepository : IRestaurantPizzaPriceRepository
     {
-        private static List<RestaurantPizzaPrice> _restaurantPizzaPrices = new List<RestaurantPizzaPrice>
+        private static List<RestaurantPizzaPriceDto> _restaurantPizzaPrices = new List<RestaurantPizzaPriceDto>
         {
-            new RestaurantPizzaPrice
+            new RestaurantPizzaPriceDto
             {
                 RestaurantId = 111,
                 PizzaId = 1,
                 Price = 20
             },
-            new RestaurantPizzaPrice
+            new RestaurantPizzaPriceDto
             {
                 RestaurantId = 111,
                 PizzaId = 2,
                 Price = 18
             },
-            new RestaurantPizzaPrice
+            new RestaurantPizzaPriceDto
             {
                 RestaurantId = 111,
                 PizzaId = 3,
                 Price = 22
             },
-            new RestaurantPizzaPrice
+            new RestaurantPizzaPriceDto
             {
                 RestaurantId = 222,
                 PizzaId = 1,
                 Price = 25,
             },
-            new RestaurantPizzaPrice
+            new RestaurantPizzaPriceDto
             {
                 RestaurantId = 222,
                 PizzaId = 4,
@@ -38,12 +38,12 @@ namespace Pizzeria.Api.Repositories
             }
         };
 
-        public IEnumerable<RestaurantPizzaPrice> GetMenu(int restaurantId)
+        public IEnumerable<RestaurantPizzaPriceDto> GetForRestaurant(int restaurantId)
         {
             throw new NotImplementedException();
         }
 
-        public RestaurantPizzaPrice GetPizza(int restaurantId, int pizzaId)
+        public RestaurantPizzaPriceDto GetPizza(int restaurantId, int pizzaId)
         {
             return _restaurantPizzaPrices.SingleOrDefault(p => p.RestaurantId == restaurantId && p.PizzaId == pizzaId);
         }

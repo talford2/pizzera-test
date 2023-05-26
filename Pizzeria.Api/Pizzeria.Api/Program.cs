@@ -1,5 +1,5 @@
-using Pizzeria.Api.Repositories;
-using Pizzeria.Api.Services;
+using Pizzeria.Business.Services;
+using Pizzeria.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 

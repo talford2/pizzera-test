@@ -1,4 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
+using Pizzeria.Business.Models;
+using Pizzeria.Business.Services;
 
 namespace Pizzeria.Api.Controllers
 {
@@ -6,14 +8,17 @@ namespace Pizzeria.Api.Controllers
     [Route("[controller]")]
     public class PizzaController : ControllerBase
     {
-        public PizzaController()
+        private readonly IPizzaService _pizzaService;
+
+        public PizzaController(IPizzaService pizzaService)
         {
+            _pizzaService = pizzaService;
         }
 
         [HttpGet]
-        public IEnumerable<object> Get()
+        public IEnumerable<Pizza> GetMenu(int restaurantId)
         {
-            return null;
+            return _pizzaService.GetMenu(restaurantId);
         }
     }
 }

@@ -1,24 +1,24 @@
-﻿using Pizzeria.Api.Models;
+﻿using Pizzeria.Repositories.Models;
 
-namespace Pizzeria.Api.Repositories
+namespace Pizzeria.Repositories
 {
     public class RestaurantRepository : IRestaurantRepository
     {
-        private static List<Restaurant> _restaurants = new List<Restaurant>
+        private static List<RestaurantDto> _restaurants = new List<RestaurantDto>
         {
-            new Restaurant
+            new RestaurantDto
             {
                 Id = 111,
                 Location = "Preston"
             },
-            new Restaurant
+            new RestaurantDto
             {
                 Id = 222,
                 Location = "Southbank"
             }
         };
 
-        public Restaurant Get(int id)
+        public RestaurantDto Get(int id)
         {
             return _restaurants.SingleOrDefault(r => r.Id == id);
         }

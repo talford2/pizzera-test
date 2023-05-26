@@ -1,29 +1,29 @@
-﻿using Pizzeria.Api.Models;
+﻿using Pizzeria.Repositories.Models;
 
-namespace Pizzeria.Api.Repositories
+namespace Pizzeria.Repositories
 {
     public class PizzaRepository : IPizzaRepository
     {
-        private static List<Pizza> _pizzas = new List<Pizza>
+        private static List<PizzaDto> _pizzas = new List<PizzaDto>
         {
-            new Pizza {
+            new PizzaDto {
                 Id = 1,
                 Name = "Capricciosa",
                 BaseIngredients = new string[] { "Cheese", "Ham", "Mushroom", "Olive" }
             },
-            new Pizza
+            new PizzaDto
             {
                 Id = 2,
                 Name = "Maxicana",
                 BaseIngredients = new string[] { "Cheese", "Salami", "Capsicum", "Chilli" }
             },
-            new Pizza
+            new PizzaDto
             {
                 Id = 3,
                 Name = "Margherita",
                 BaseIngredients = new string[] { "Cheese", "Spinach", "Ricotta", "Cherry Tomatoes" }
             },
-            new Pizza
+            new PizzaDto
             {
                 Id = 4,
                 Name = "Vegetarian",
@@ -31,17 +31,17 @@ namespace Pizzeria.Api.Repositories
             }
         };
 
-        public Pizza Get(int id)
+        public PizzaDto Get(int id)
         {
             return _pizzas.FirstOrDefault(p => p.Id == id);
         }
 
-        public IEnumerable<Pizza> GetAll()
+        public IEnumerable<PizzaDto> GetAll()
         {
             return _pizzas;
         }
 
-        public void Add(Pizza pizza)
+        public void Add(PizzaDto pizza)
         {
             pizza.Id = _pizzas.Max(p => p.Id) + 1;
             _pizzas.Add(pizza);

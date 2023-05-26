@@ -1,6 +1,6 @@
-﻿namespace Pizzeria.Api.Models
+﻿namespace Pizzeria.Repositories.Models
 {
-    public class Topping
+    public class ToppingDto
     {
         public int Id { get; set; }
 

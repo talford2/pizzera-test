@@ -1,32 +1,30 @@
-﻿using Pizzeria.Api.Models;
+﻿using Pizzeria.Repositories.Models;
 
-namespace Pizzeria.Api.Repositories
+namespace Pizzeria.Repositories
 {
-
-
     public class ToppingRepository : IToppingRepository
     {
-        private static List<Topping> _toppings = new List<Topping>
+        private static List<ToppingDto> _toppings = new List<ToppingDto>
         {
-            new Topping
+            new ToppingDto
             {
                 Id = 100,
                 Name = "Cheese",
                 Price = 1
             },
-            new Topping
+            new ToppingDto
             {
                 Id = 200,
                 Name = "Capsicum",
                 Price = 1
             },
-            new Topping
+            new ToppingDto
             {
                 Id = 300,
                 Name = "Salami",
                 Price = 1
             },
-            new Topping
+            new ToppingDto
             {
                 Id = 400,
                 Name = "Olives",
@@ -34,7 +32,7 @@ namespace Pizzeria.Api.Repositories
             }
         };
 
-        public Topping Get(int id)
+        public ToppingDto Get(int id)
         {
             return _toppings.SingleOrDefault(t => t.Id == id);
         }
