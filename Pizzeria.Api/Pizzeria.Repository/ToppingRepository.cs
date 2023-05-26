@@ -34,7 +34,7 @@ namespace Pizzeria.Repository
 
         public ToppingDto Get(int id)
         {
-            return _toppings.SingleOrDefault(t => t.Id == id);
+            return _toppings.Single(t => t.Id == id);
         }
     }
 }

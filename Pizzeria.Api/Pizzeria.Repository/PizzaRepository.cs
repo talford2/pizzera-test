@@ -33,7 +33,7 @@ namespace Pizzeria.Repository
 
         public PizzaDto Get(int id)
         {
-            return _pizzas.FirstOrDefault(p => p.Id == id);
+            return _pizzas.Single(p => p.Id == id);
         }
 
         public IEnumerable<PizzaDto> GetAll()

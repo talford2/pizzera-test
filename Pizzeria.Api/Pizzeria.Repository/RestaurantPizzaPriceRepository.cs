@@ -45,7 +45,7 @@ namespace Pizzeria.Repository
 
         public RestaurantPizzaPriceDto GetPizza(int restaurantId, int pizzaId)
         {
-            return _restaurantPizzaPrices.SingleOrDefault(p => p.RestaurantId == restaurantId && p.PizzaId == pizzaId);
+            return _restaurantPizzaPrices.Single(p => p.RestaurantId == restaurantId && p.PizzaId == pizzaId);
         }
     }
 }

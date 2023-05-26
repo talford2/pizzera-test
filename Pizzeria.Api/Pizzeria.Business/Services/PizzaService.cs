@@ -8,9 +8,10 @@ namespace Pizzeria.Business.Services
         private readonly IRestaurantPizzaPriceRepository _restaurantPizzaPriceRepository;
         private readonly IPizzaRepository _pizzaRepository;
 
-        public PizzaService(IRestaurantPizzaPriceRepository restaurantPizzaPriceRepository)
+        public PizzaService(IRestaurantPizzaPriceRepository restaurantPizzaPriceRepository, IPizzaRepository pizzaRepository)
         {
             _restaurantPizzaPriceRepository = restaurantPizzaPriceRepository;
+            _pizzaRepository = pizzaRepository;
         }
 
         public IEnumerable<Pizza> GetMenu(int restaurantId)

@@ -20,7 +20,7 @@ namespace Pizzeria.Repository
 
         public RestaurantDto Get(int id)
         {
-            return _restaurants.SingleOrDefault(r => r.Id == id);
+            return _restaurants.Single(r => r.Id == id);
         }
     }
 }
