@@ -1,6 +1,6 @@
 ﻿using Pizzeria.Repositories.Models;
 
-namespace Pizzeria.Repositories
+namespace Pizzeria.Repository
 {
     public class RestaurantPizzaPriceRepository : IRestaurantPizzaPriceRepository
     {

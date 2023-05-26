@@ -5,7 +5,7 @@ VisualStudioVersion = 17.6.33712.159
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pizzeria.Api", "Pizzeria.Api\Pizzeria.Api.csproj", "{738C9581-5ED3-4074-853F-912F35998B98}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pizzeria.Repositories", "Pizzeria.Repositories\Pizzeria.Repositories.csproj", "{96DBEC50-0643-4AAC-B09E-DC90CC50A012}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pizzeria.Repository", "Pizzeria.Repository\Pizzeria.Repository.csproj", "{96DBEC50-0643-4AAC-B09E-DC90CC50A012}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pizzeria.Business", "Pizzeria.Business\Pizzeria.Business.csproj", "{4F3DECE8-FD75-4C04-9FF5-1FADF9AE3E98}"
 EndProject

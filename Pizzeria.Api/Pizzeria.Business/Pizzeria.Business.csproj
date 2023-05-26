@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Pizzeria.Repositories\Pizzeria.Repositories.csproj" />
+    <ProjectReference Include="..\Pizzeria.Repository\Pizzeria.Repository.csproj" />
   </ItemGroup>
 
 </Project>
