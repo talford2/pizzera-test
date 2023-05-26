@@ -5,7 +5,7 @@ using Pizzeria.Business.Services;
 namespace Pizzeria.Api.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("[controller]/[action]")]
     public class PizzaController : ControllerBase
     {
         private readonly IPizzaService _pizzaService;
