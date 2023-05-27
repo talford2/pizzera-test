@@ -15,7 +15,7 @@ export const OrderSummary = (props: IOrderSummaryProps) => {
     <div className="order-summary">
       <header>
         <h3>
-          Order <span>({props.order?.restaurantId})</span>
+          Order <span>({props.order?.restaurant?.name})</span>
         </h3>
         <Button label="Close" onClick={props.onCloseOrderSummary} />
       </header>
