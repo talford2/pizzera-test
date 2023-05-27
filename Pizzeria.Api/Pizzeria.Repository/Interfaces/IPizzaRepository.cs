@@ -1,6 +1,6 @@
 ﻿using Pizzeria.Repositories.Models;
 
-namespace Pizzeria.Repository
+namespace Pizzeria.Repository.Interfaces
 {
     public interface IPizzaRepository
     {

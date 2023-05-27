@@ -1,6 +1,6 @@
 ﻿using Pizzeria.Business.Exceptions;
 using Pizzeria.Business.Models;
-using Pizzeria.Repository;
+using Pizzeria.Repository.Interfaces;
 
 namespace Pizzeria.Business.Services
 {
@@ -41,6 +41,19 @@ namespace Pizzeria.Business.Services
             }
 
             return fullPizza;
+        }
+
+        public Pizza GetPizza(int id)
+        {
+            var pizza = _pizzaRepository.Get(id);
+            return new Pizza
+            {
+                Id = pizza.Id,
+                Name = pizza.Name,
+                BaseIngredients = pizza.BaseIngredients,
+                // BasePrice = pizza. // no restaurant context
+                // RestaurantId = 
+            };
         }
     }
 }

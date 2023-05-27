@@ -2,7 +2,7 @@ using Moq;
 using Pizzeria.Business.Exceptions;
 using Pizzeria.Business.Services;
 using Pizzeria.Repositories.Models;
-using Pizzeria.Repository;
+using Pizzeria.Repository.Interfaces;
 
 namespace Pizzeria.UnitTests
 {

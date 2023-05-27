@@ -1,5 +1,6 @@
 using Pizzeria.Business.Services;
 using Pizzeria.Repository;
+using Pizzeria.Repository.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,13 +25,19 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// Setting up dependency injection
+// Respositories
 builder.Services.AddSingleton<IPizzaRepository, PizzaRepository>();
 builder.Services.AddSingleton<IRestaurantPizzaPriceRepository, RestaurantPizzaPriceRepository>();
 builder.Services.AddSingleton<IRestaurantRepository, RestaurantRepository>();
 builder.Services.AddSingleton<IToppingRepository, ToppingRepository>();
+builder.Services.AddSingleton<IOrderRepository, OrderRepository>();
+builder.Services.AddSingleton<IPizzaOrderRepository, PizzaOrderRepository>();
+builder.Services.AddSingleton<IPizzaToppingOrderRepository, PizzaToppingOrderRepository>();
+
+// Services
 builder.Services.AddSingleton<IPizzaService, PizzaService>();
 builder.Services.AddSingleton<IRestaurantService, RestaurantService>();
+builder.Services.AddSingleton<IOrderService, OrderService>();
 
 var app = builder.Build();
 app.UseCors(CorsPolicyName);

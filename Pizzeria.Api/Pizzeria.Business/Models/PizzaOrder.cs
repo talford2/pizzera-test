@@ -2,6 +2,8 @@
 {
     public class PizzaOrder
     {
+        public int Id { get; set; }
+
         public Pizza Pizza { get; set; }
 
         public IEnumerable<Topping> ExtraToppings { get; set; }

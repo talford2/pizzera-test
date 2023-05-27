@@ -1,5 +1,5 @@
 ﻿using Pizzeria.Business.Models;
-using Pizzeria.Repository;
+using Pizzeria.Repository.Interfaces;
 
 namespace Pizzeria.Business.Services
 {
