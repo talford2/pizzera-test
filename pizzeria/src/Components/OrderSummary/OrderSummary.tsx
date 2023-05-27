@@ -1,11 +1,13 @@
 import { Order } from "../../Models/Order";
 import { Utility } from "../../Services/Utility";
+import { Button } from "../Button/Button";
 import "./OrderSummary.css";
 import { OrderSummaryItem } from "./OrderSummaryItem";
 
 export interface IOrderSummaryProps {
   order?: Order;
   onRemovePizzaOrder: (pizzaOrderId: number) => void;
+  onCloseOrderSummary: () => void;
 }
 
 export const OrderSummary = (props: IOrderSummaryProps) => {
@@ -15,15 +17,20 @@ export const OrderSummary = (props: IOrderSummaryProps) => {
         <h3>
           Order <span>({props.order?.restaurantId})</span>
         </h3>
+        <Button label="Close" onClick={props.onCloseOrderSummary} />
       </header>
       <section>
-        {props.order?.pizzaOrders?.map((p, i) => (
-          <OrderSummaryItem
-            key={i}
-            pizzaOrder={p}
-            onRemove={() => props.onRemovePizzaOrder(p.id)}
-          />
-        ))}
+        {(props.order?.pizzaOrders?.length || 0 > 0) &&
+          props.order?.pizzaOrders?.map((p, i) => (
+            <OrderSummaryItem
+              key={i}
+              pizzaOrder={p}
+              onRemove={() => props.onRemovePizzaOrder(p.id)}
+            />
+          ))}
+        {props.order?.pizzaOrders?.length == 0 && (
+          <p>There are not items in your order.</p>
+        )}
       </section>
       <footer>
         <div>Total: {Utility.formatCurrency(props.order?.totalCost || 0)}</div>

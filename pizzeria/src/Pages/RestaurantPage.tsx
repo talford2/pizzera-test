@@ -6,6 +6,7 @@ import { Restaurant } from "../Models/Restaurant";
 import { PizzeriaService } from "../Services/PizzeriaService";
 import { OrderSummary } from "../Components/OrderSummary/OrderSummary";
 import { Order } from "../Models/Order";
+import { Button } from "../Components/Button/Button";
 
 export const RestaurantPage = () => {
   const pizzeriaService = new PizzeriaService();
@@ -13,6 +14,7 @@ export const RestaurantPage = () => {
   const [restaurant, setRestaurant] = React.useState<Restaurant>();
   const [pizzas, setPizzas] = React.useState<Pizza[]>();
   const [order, setOrder] = React.useState<Order>();
+  const [showOrder, setShowOrder] = React.useState<boolean>(false);
   const restaurantId = parseInt(params.id || "0");
 
   useEffect(() => {
@@ -31,30 +33,35 @@ export const RestaurantPage = () => {
         setOrder(o);
       });
     } else {
-      pizzeriaService.AddPizzaToOrder(order.id, pizza.id).then((o) => {
-        setOrder(o);
+      pizzeriaService.AddPizzaToOrder(order.id, pizza.id).then(() => {
+        pizzeriaService.GetOrder(order?.id || 0).then((o) => {
+          setOrder(o);
+        });
       });
     }
+    setShowOrder(true);
   };
 
   const handleRemoveFromOrder = (pizzaOrderId: number) => {
     pizzeriaService.RemovePizzaFromOrder(pizzaOrderId).then(() => {
       pizzeriaService.GetOrder(order?.id || 0).then((o) => {
-          setOrder(o);
+        setOrder(o);
       });
     });
   };
 
   return (
     <>
-      {order && (
+      {order && showOrder && (
         <OrderSummary
           order={order}
           onRemovePizzaOrder={handleRemoveFromOrder}
+          onCloseOrderSummary={() => setShowOrder(false)}
         />
       )}
       <section>
         <h1>{restaurant && restaurant.name}</h1>
+        {order && !showOrder && <Button label="Show Order" onClick={() => setShowOrder(true)} />}
         <h2>Pizza Menu</h2>
         <div>
           {pizzas?.map((p) => (

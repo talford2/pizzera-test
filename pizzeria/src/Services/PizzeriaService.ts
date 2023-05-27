@@ -23,15 +23,16 @@ export class PizzeriaService {
   GetOrder = async (orderId: number): Promise<Order> => {
     return (await axios.get(`order/${orderId}`)).data;
   };
+
   CreateNewOrder = async (restaurantId: number, pizzaId: number): Promise<Order> => {
     return (await axios.post(`order`, { restaurantId: restaurantId, pizzaId: pizzaId})).data;
   }
 
-  AddPizzaToOrder = async (orderId: number, pizzaId: number): Promise<Order> => {
-    return (await axios.post(`order/pizza-order`, { orderId: orderId, pizzaId: pizzaId})).data;
+  AddPizzaToOrder = async (orderId: number, pizzaId: number): Promise<void> => {
+    return (await axios.post(`order/pizza-order`, { orderId: orderId, pizzaId: pizzaId}));
   };
 
-  RemovePizzaFromOrder = async (pizzaOrderId: number): Promise<boolean> => {
+  RemovePizzaFromOrder = async (pizzaOrderId: number): Promise<void> => {
     return (await axios.delete(`order/pizza-order/${pizzaOrderId}`));
   };
 }

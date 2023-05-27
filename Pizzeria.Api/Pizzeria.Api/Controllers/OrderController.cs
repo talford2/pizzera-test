@@ -27,17 +27,15 @@ namespace Pizzeria.Api.Controllers
         }
 
         [HttpPost("order/pizza-order")]
-        public Order AddPizzaToOrder(AddPizzaToOrder order)
+        public void AddPizzaToOrder(AddPizzaToOrder order)
         {
             _orderService.AddPizzaToOrder(order.OrderId, order.PizzaId);
-            return _orderService.Get(order.OrderId);
         }
 
         [HttpDelete("order/pizza-order/{pizzaOrderId}")]
-        public bool RemovePizzaFromOrder(int pizzaOrderId)
+        public void RemovePizzaFromOrder(int pizzaOrderId)
         {
             _orderService.RemovePizzaFromOrder(pizzaOrderId);
-            return true;
         }
     }
 }
