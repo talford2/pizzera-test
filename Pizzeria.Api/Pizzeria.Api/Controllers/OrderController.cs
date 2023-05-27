@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Pizzeria.Api.Models;
 using Pizzeria.Business.Models;
 using Pizzeria.Business.Services.Abstractions;
 
@@ -26,16 +27,9 @@ namespace Pizzeria.Api.Controllers
         }
 
         [HttpPost("order/pizza-order")]
-        public Order AddPizzaToOrder(AddPizzaToOrderParams order)
+        public Order AddPizzaToOrder(AddPizzaToOrder order)
         {
             return _orderService.AddPizzaToOrder(order.OrderId, order.PizzaId);
         }
-    }
-
-    public class AddPizzaToOrderParams
-    {
-        public int OrderId { get; set; }
-
-        public int PizzaId { get; set; }
     }
 }

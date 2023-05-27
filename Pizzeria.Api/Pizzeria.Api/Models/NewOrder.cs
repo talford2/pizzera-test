@@ -1,4 +1,4 @@
-﻿namespace Pizzeria.Business.Models
+﻿namespace Pizzeria.Api.Models
 {
     public class NewOrder
     {
