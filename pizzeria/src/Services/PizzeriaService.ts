@@ -23,4 +23,8 @@ export class PizzeriaService {
   CreateNewOrder = async (restaurantId: number, pizzaId: number):Promise<Order> =>{
     return (await axios.post(`order`, { restaurantId: restaurantId, pizzaId: pizzaId})).data;
   }
+
+  AddPizzaToOrder = async (orderId: number, pizzaId: number): Promise<Order> => {
+    return (await axios.post(`order/pizza-order`, { orderId: orderId, pizzaId: pizzaId})).data;
+  };
 }

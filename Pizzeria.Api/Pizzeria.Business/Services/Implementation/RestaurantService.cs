@@ -1,7 +1,8 @@
 ﻿using Pizzeria.Business.Models;
+using Pizzeria.Business.Services.Abstractions;
 using Pizzeria.Repository.Interfaces;
 
-namespace Pizzeria.Business.Services
+namespace Pizzeria.Business.Services.Implementation
 {
     public class RestaurantService : IRestaurantService
     {

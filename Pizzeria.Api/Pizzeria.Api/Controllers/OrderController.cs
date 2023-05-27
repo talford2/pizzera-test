@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Pizzeria.Business.Models;
-using Pizzeria.Business.Services;
+using Pizzeria.Business.Services.Abstractions;
 
 namespace Pizzeria.Api.Controllers
 {
@@ -20,9 +20,22 @@ namespace Pizzeria.Api.Controllers
         }
 
         [HttpPost("order")]
-        public Order CreateOrder(int restaurantId, int pizzaId)
+        public Order CreateOrder(NewOrder order)
         {
-            return _orderService.Create(restaurantId, pizzaId);
+            return _orderService.Create(order.RestaurantId, order.PizzaId);
         }
+
+        [HttpPost("order/pizza-order")]
+        public Order AddPizzaToOrder(AddPizzaToOrderParams order)
+        {
+            return _orderService.AddPizzaToOrder(order.OrderId, order.PizzaId);
+        }
+    }
+
+    public class AddPizzaToOrderParams
+    {
+        public int OrderId { get; set; }
+
+        public int PizzaId { get; set; }
     }
 }

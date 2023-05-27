@@ -1,6 +1,6 @@
 ﻿using Pizzeria.Business.Models;
 
-namespace Pizzeria.Business.Services
+namespace Pizzeria.Business.Services.Abstractions
 {
     public interface IRestaurantService
     {

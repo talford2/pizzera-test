@@ -1,7 +1,7 @@
 ﻿using Pizzeria.Repository.Interfaces;
 using Pizzeria.Repository.Models;
 
-namespace Pizzeria.Repository
+namespace Pizzeria.Repository.Implementations
 {
     public class PizzaOrderRepository : IPizzaOrderRepository
     {

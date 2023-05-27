@@ -1,9 +1,10 @@
 ﻿using Pizzeria.Business.Exceptions;
 using Pizzeria.Business.Models;
+using Pizzeria.Business.Services.Abstractions;
 using Pizzeria.Repository.Interfaces;
 using Pizzeria.Repository.Models;
 
-namespace Pizzeria.Business.Services
+namespace Pizzeria.Business.Services.Implementation
 {
     public class OrderService : IOrderService
     {
@@ -26,13 +27,14 @@ namespace Pizzeria.Business.Services
         {
             var newOrderId = _orderRepository.Create(new OrderDto { RestaurantId = restaurantId });
             var restaurant = _restaurantService.Get(restaurantId);
-            _pizzaOrderRepository.Create(newOrderId, pizzaId);
+            var pizzaOrderId = _pizzaOrderRepository.Create(newOrderId, pizzaId);
 
             return new Order
             {
                 Id = newOrderId,
                 PizzaOrders = new List<PizzaOrder> {
                     new PizzaOrder {
+                        Id = pizzaOrderId,
                         Pizza = _pizzaService.GetPizza(pizzaId),
                         ExtraToppings = new Topping[] { }
                     }
@@ -63,14 +65,10 @@ namespace Pizzeria.Business.Services
             };
         }
 
-        public void AddPizzaToOrder()
+        public Order AddPizzaToOrder(int orderId, int pizzaId)
         {
-            throw new Exception();
-        }
-
-        public void RemovePizzaFromOrder()
-        {
-            throw new Exception();
+            _pizzaOrderRepository.Create(orderId, pizzaId);
+            return Get(orderId);
         }
     }
 }
