@@ -1,0 +1,27 @@
+.checkbox {
+  padding-left: 30px;
+  position: relative;
+  cursor: pointer;
+}
+
+.checkbox label {
+  cursor: pointer;
+}
+.checkbox .box {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  width: 24px;
+  height: 24px;
+}
+
+.checkbox.checked .box {
+  background-color: #000;
+}
+
+.checkbox:hover .box {
+  border-color: #999;
+}
