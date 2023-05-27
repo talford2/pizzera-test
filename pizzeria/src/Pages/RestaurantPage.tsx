@@ -37,9 +37,22 @@ export const RestaurantPage = () => {
     }
   };
 
+  const handleRemoveFromOrder = (pizzaOrderId: number) => {
+    pizzeriaService.RemovePizzaFromOrder(pizzaOrderId).then(() => {
+      pizzeriaService.GetOrder(order?.id || 0).then((o) => {
+          setOrder(o);
+      });
+    });
+  };
+
   return (
     <>
-      {order && <OrderSummary order={order} />}
+      {order && (
+        <OrderSummary
+          order={order}
+          onRemovePizzaOrder={handleRemoveFromOrder}
+        />
+      )}
       <section>
         <h1>{restaurant && restaurant.name}</h1>
         <h2>Pizza Menu</h2>

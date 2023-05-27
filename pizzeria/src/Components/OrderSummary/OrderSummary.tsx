@@ -1,10 +1,11 @@
 import { Order } from "../../Models/Order";
-import { Topping } from "../../Models/Topping";
 import { Utility } from "../../Services/Utility";
 import "./OrderSummary.css";
+import { OrderSummaryItem } from "./OrderSummaryItem";
 
 export interface IOrderSummaryProps {
   order?: Order;
+  onRemovePizzaOrder: (pizzaOrderId: number) => void;
 }
 
 export const OrderSummary = (props: IOrderSummaryProps) => {
@@ -15,22 +16,13 @@ export const OrderSummary = (props: IOrderSummaryProps) => {
           Order <span>({props.order?.restaurantId})</span>
         </h3>
       </header>
-
       <section>
         {props.order?.pizzaOrders?.map((p, i) => (
-          <div key={i}>
-            <strong>{p.pizza?.name}</strong>
-            <span>{Utility.formatCurrency(p.pizza?.basePrice || 0)}</span>
-
-            {/* <div>
-              <p>Extra toppings</p>
-              {p.toppings && p.toppings.length && (
-                <ul>
-                  {p.toppings.map(t => <li>{t.name} - {Utility.formatCurrency(t.price)}</li>)}
-                </ul>
-              )}
-            </div> */}
-          </div>
+          <OrderSummaryItem
+            key={i}
+            pizzaOrder={p}
+            onRemove={() => props.onRemovePizzaOrder(p.id)}
+          />
         ))}
       </section>
       <footer>

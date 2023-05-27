@@ -64,10 +64,14 @@ namespace Pizzeria.Business.Services.Implementation
             };
         }
 
-        public Order AddPizzaToOrder(int orderId, int pizzaId)
+        public void AddPizzaToOrder(int orderId, int pizzaId)
         {
             _pizzaOrderRepository.Create(orderId, pizzaId);
-            return Get(orderId);
+        }
+
+        public void RemovePizzaFromOrder(int pizzaOrderId)
+        {
+            _pizzaOrderRepository.Delete(pizzaOrderId);
         }
     }
 }

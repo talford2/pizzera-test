@@ -19,6 +19,13 @@ namespace Pizzeria.Repository.Implementations
             return newId;
         }
 
+        public void Delete(int pizzaOrderId)
+        {
+            var countChange = _pizzaOrder.RemoveAll(p => p.Id == pizzaOrderId);
+            if (countChange == 0)
+                throw new Exception($"Could not find pizza order for {pizzaOrderId}");
+        }
+
         public IEnumerable<PizzaOrderDto> GetForOrder(int orderId)
         {
             return _pizzaOrder.Where(p => p.OrderId == orderId);

@@ -8,6 +8,8 @@ namespace Pizzeria.Business.Services.Abstractions
 
         public Order Create(int restaurantId, int pizzaId);
 
-        public Order AddPizzaToOrder(int orderId, int pizzaId);
+        public void AddPizzaToOrder(int orderId, int pizzaId);
+
+        public void RemovePizzaFromOrder(int pizzaOrderId);
     }
 }

@@ -7,5 +7,7 @@ namespace Pizzeria.Repository.Interfaces
         public int Create(int orderId, int pizzaId);
 
         public IEnumerable<PizzaOrderDto> GetForOrder(int orderId);
+
+        public void Delete(int pizzaOrderId);
     }
 }
