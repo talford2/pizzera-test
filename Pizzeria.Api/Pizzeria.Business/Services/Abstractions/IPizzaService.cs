@@ -7,5 +7,7 @@ namespace Pizzeria.Business.Services.Abstractions
         public IEnumerable<Pizza> GetMenu(int restaurantId);
 
         public Pizza GetPizza(int id);
+
+        public Pizza GetPizza(int restaurantId, int id);
     }
 }

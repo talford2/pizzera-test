@@ -44,6 +44,21 @@ namespace Pizzeria.Business.Services.Implementation
             return fullPizza;
         }
 
+        public Pizza GetPizza(int restaurantId, int id)
+        {
+            var pizza = _pizzaRepository.Get(id);
+            var pizzaPrice = _restaurantPizzaPriceRepository.GetPizza(restaurantId, id);
+
+            return new Pizza
+            {
+                Id = pizzaPrice.PizzaId,
+                Name = pizza.Name,
+                BaseIngredients = pizza.BaseIngredients,
+                BasePrice = pizzaPrice.Price,
+                RestaurantId = pizzaPrice.RestaurantId
+            };
+        }
+
         public Pizza GetPizza(int id)
         {
             var pizza = _pizzaRepository.Get(id);
@@ -51,9 +66,7 @@ namespace Pizzeria.Business.Services.Implementation
             {
                 Id = pizza.Id,
                 Name = pizza.Name,
-                BaseIngredients = pizza.BaseIngredients,
-                // BasePrice = pizza. // no restaurant context
-                // RestaurantId = 
+                BaseIngredients = pizza.BaseIngredients
             };
         }
     }

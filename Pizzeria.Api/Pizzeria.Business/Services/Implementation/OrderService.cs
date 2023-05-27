@@ -35,8 +35,7 @@ namespace Pizzeria.Business.Services.Implementation
                 PizzaOrders = new List<PizzaOrder> {
                     new PizzaOrder {
                         Id = pizzaOrderId,
-                        Pizza = _pizzaService.GetPizza(pizzaId),
-                        ExtraToppings = new Topping[] { }
+                        Pizza = _pizzaService.GetPizza(restaurantId, pizzaId)
                     }
                 },
                 Restaurant = restaurant
@@ -59,7 +58,7 @@ namespace Pizzeria.Business.Services.Implementation
                 PizzaOrders = pizzaOrders.Select(o => new PizzaOrder
                 {
                     Id = o.Id,
-                    Pizza = _pizzaService.GetPizza(o.PizzaId),
+                    Pizza = _pizzaService.GetPizza(restaurant.Id, o.PizzaId),
                     // ExtraToppings = ????
                 })
             };

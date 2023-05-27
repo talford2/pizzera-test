@@ -26,32 +26,15 @@ export const RestaurantPage = () => {
   }, []);
 
   const handleAddToOrder = (pizza: Pizza) => {
-    // Should push this up to the server and get a fresh copy of the order
-
-    //let localOrder: Order | undefined = undefined;
-
-    //let localOrder = order && {...order} as Order || new Order(restaurantId);
-    //let localOrder: Order;
     if (!order) {
-     // localOrder = new Order(restaurantId);
-      pizzeriaService.CreateNewOrder(restaurantId, pizza.id).then(order => {
-        console.log("New order", order);
-        setOrder(order);
+      pizzeriaService.CreateNewOrder(restaurantId, pizza.id).then((o) => {
+        setOrder(o);
       });
     } else {
-      //localOrder = { ...order } as Order;
-
-      pizzeriaService.AddPizzaToOrder(order.id, pizza.id).then(order => {
-        setOrder(order);
+      pizzeriaService.AddPizzaToOrder(order.id, pizza.id).then((o) => {
+        setOrder(o);
       });
-
-      //localOrder.pizzaOrders?.push({ pizza: pizza, toppings: [] });
-      // Add pizza to existing order
-      //setOrder(...)
     }
-
-    //console.log("Set order", localOrder);
-    //setOrder(localOrder);
   };
 
   return (
