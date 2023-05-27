@@ -10,7 +10,7 @@ export const RestaurantList = (props: IRestaurantListProps) => {
     <ul>
       {props.restaurants.map((r) => {
         return (
-          <li>
+          <li key={r.id}>
             <Link to={`/restaurants/${r.id}`}>{r.name}</Link>
           </li>
         );

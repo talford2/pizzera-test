@@ -1,0 +1,28 @@
+.order-summary {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  width: 300px;
+  padding: 0;
+  background-color: #fff;
+  box-shadow: 0 0 30px rgba(0, 0, 0);
+  z-index: 1;
+}
+
+.order-summary > header {
+  padding: 10px 20px;
+  border-bottom: 1px solid #ccc;
+  background-color: #ddd;
+}
+
+.order-summary > section {
+  padding: 10px 20px;
+}
+
+.order-summary > footer {
+  border-top: 1px solid #ccc;
+  padding: 10px 20px;
+}
+.order-summary h3 {
+  margin: 0;
+}
