@@ -1,3 +1,5 @@
+import "./Button.css";
+
 export interface IButtonProps {
   label: string;
   onClick?: () => void;

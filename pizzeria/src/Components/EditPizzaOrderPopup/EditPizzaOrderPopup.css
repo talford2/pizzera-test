@@ -1,0 +1,25 @@
+.popup {
+  width: 500px;
+  position: absolute;
+  top: 100;
+  left: calc(50% - 250px);
+  background-color: #fff;
+  box-shadow: 0 0 30px rgba(0, 0, 0);
+  z-index: 2;
+}
+
+.popup > header {
+  padding: 10px 20px;
+}
+
+.popup > header h2 {
+  margin: 0;
+}
+
+.popup section {
+  padding: 20px;
+}
+
+.popup footer {
+  padding: 20px;
+}

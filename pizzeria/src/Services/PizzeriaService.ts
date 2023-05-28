@@ -2,10 +2,11 @@ import axios from "axios";
 import { Restaurant } from "../Models/Restaurant";
 import { Pizza } from "../Models/Pizza";
 import { Order } from "../Models/Order";
+import { Topping } from "../Models/Topping";
 
 export class PizzeriaService {
   constructor() {
-    axios.defaults.baseURL = "https://localhost:44314/";
+    axios.defaults.baseURL = "https://localhost:7032/";
   }
 
   GetRestaurants = async (): Promise<Restaurant[]> => {
@@ -24,15 +25,37 @@ export class PizzeriaService {
     return (await axios.get(`order/${orderId}`)).data;
   };
 
-  CreateNewOrder = async (restaurantId: number, pizzaId: number): Promise<Order> => {
-    return (await axios.post(`order`, { restaurantId: restaurantId, pizzaId: pizzaId})).data;
-  }
+  CreateNewOrder = async (
+    restaurantId: number,
+    pizzaId: number,
+    additionalToppings?: number[]
+  ): Promise<Order> => {
+    return (
+      await axios.post(`order`, {
+        restaurantId: restaurantId,
+        pizzaId: pizzaId,
+        toppingIds: additionalToppings,
+      })
+    ).data;
+  };
 
-  AddPizzaToOrder = async (orderId: number, pizzaId: number): Promise<void> => {
-    return (await axios.post(`order/pizza-order`, { orderId: orderId, pizzaId: pizzaId}));
+  AddPizzaToOrder = async (
+    orderId: number,
+    pizzaId: number,
+    additionalToppings?: number[]
+  ): Promise<void> => {
+    return await axios.post(`order/pizza-order`, {
+      orderId: orderId,
+      pizzaId: pizzaId,
+      toppingIds: additionalToppings,
+    });
   };
 
   RemovePizzaFromOrder = async (pizzaOrderId: number): Promise<void> => {
-    return (await axios.delete(`order/pizza-order/${pizzaOrderId}`));
+    return await axios.delete(`order/pizza-order/${pizzaOrderId}`);
+  };
+
+  GetToppings = async (): Promise<Topping[]> => {
+    return (await axios.get(`toppings`)).data;
   };
 }

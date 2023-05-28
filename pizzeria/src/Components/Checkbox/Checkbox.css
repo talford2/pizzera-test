@@ -2,6 +2,7 @@
   padding-left: 30px;
   position: relative;
   cursor: pointer;
+  margin-bottom: 10px;
 }
 
 .checkbox label {
@@ -14,8 +15,8 @@
   top: 0;
   border: 1px solid #ccc;
   background-color: #fff;
-  width: 24px;
-  height: 24px;
+  width: 22px;
+  height: 22px;
 }
 
 .checkbox.checked .box {

@@ -19,5 +19,11 @@ namespace Pizzeria.Api.Controllers
         {
             return _pizzaService.GetMenu(restaurantId);
         }
-    }
+
+		[HttpGet("toppings")]
+		public IEnumerable<Topping> GetToppings()
+		{
+			return _pizzaService.GetToppings();
+		}
+	}
 }

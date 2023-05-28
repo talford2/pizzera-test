@@ -28,7 +28,7 @@ export const OrderSummary = (props: IOrderSummaryProps) => {
               onRemove={() => props.onRemovePizzaOrder(p.id)}
             />
           ))}
-        {props.order?.pizzaOrders?.length == 0 && (
+        {props.order?.pizzaOrders?.length === 0 && (
           <p>There are not items in your order.</p>
         )}
       </section>

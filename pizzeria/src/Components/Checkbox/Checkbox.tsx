@@ -4,16 +4,17 @@ import "./Checkbox.css";
 export interface ICheckboxProps {
   label: string;
   checked: boolean;
-  onChange: (checked: boolean) => void;
+  data?: any;
+  onChange: (checked: boolean, data: any) => void;
 }
 
 export const Checkbox = (props: ICheckboxProps) => {
   const [checked, setChecked] = React.useState<boolean>(props.checked);
 
-  const handleClick = (eventThing: any) => {
+  const handleClick = () => {
     const newValue = !checked;
     setChecked(newValue);
-    props.onChange(newValue);
+    props.onChange(newValue, props.data);
   };
 
   return (
