@@ -1,15 +1,18 @@
 .popup {
   width: 500px;
   position: absolute;
-  top: 100;
+  top: 250px;
   left: calc(50% - 250px);
   background-color: #fff;
-  box-shadow: 0 0 30px rgba(0, 0, 0);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
   z-index: 2;
+  border-radius: 5px;
+  overflow: hidden;
 }
 
 .popup > header {
   padding: 10px 20px;
+  background-color: #666;
 }
 
 .popup > header h2 {

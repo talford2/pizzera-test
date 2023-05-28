@@ -4,7 +4,45 @@
   border-bottom: 1px solid #ccc;
 }
 
+.order-summary .order-summary-item .item-title button {
+  position: absolute;
+  right: 0;
+}
+
 .order-summary .order-summary-item:last-child {
   border-bottom: none;
   margin-bottom: 0;
+}
+
+.order-summary .order-summary-item .extra-topping > strong {
+  color: #999;
+  font-weight: normal;
+  display: block;
+  margin-top: 5px;
+}
+
+.order-summary .order-summary-item .extra-topping > div {
+  display: flex;
+}
+
+.order-summary .order-summary-item .extra-topping > div > span {
+  display: block;
+  width: 50%;
+}
+
+.order-summary .order-summary-item .extra-topping > div .topping-cost {
+  text-align: right;
+}
+
+.order-summary .item-total {
+  display: flex;
+}
+.order-summary .item-total > span {
+  display: block;
+  width: 50%;
+}
+
+.order-summary .item-total > span.cost {
+  text-align: right;
+  font-weight: 500;
 }

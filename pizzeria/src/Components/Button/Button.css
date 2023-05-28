@@ -1,4 +1,13 @@
 button {
   cursor: pointer;
   margin-right: 10px;
+  background-color: #666;
+  border-radius: 3px;
+  color: #fff;
+  border: none;
+  padding: 7px 12px;
+}
+
+button:hover {
+  background-color: #777;
 }

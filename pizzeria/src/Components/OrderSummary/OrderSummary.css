@@ -5,14 +5,22 @@
   width: 300px;
   padding: 0;
   background-color: #fff;
-  box-shadow: 0 0 30px rgba(0, 0, 0);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
   z-index: 1;
+  font-size: 11pt;
+  border-radius: 5px;
+  overflow: hidden;
 }
 
 .order-summary > header {
   padding: 10px 20px;
   border-bottom: 1px solid #ccc;
-  background-color: #ddd;
+  background-color: #666;
+}
+
+.order-summary h3 {
+  margin: 0;
+  margin-bottom: 10px;
 }
 
 .order-summary > section {
@@ -23,6 +31,15 @@
   border-top: 1px solid #ccc;
   padding: 10px 20px;
 }
-.order-summary h3 {
-  margin: 0;
+
+.order-summary > footer > div {
+  display: flex;
+}
+.order-summary > footer > div strong,
+.order-summary > footer > div span {
+  display: block;
+  width: 50%;
+}
+.order-summary > footer > div strong {
+  text-align: right;
 }

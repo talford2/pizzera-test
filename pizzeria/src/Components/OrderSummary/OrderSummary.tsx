@@ -35,7 +35,10 @@ export const OrderSummary = (props: IOrderSummaryProps) => {
         )}
       </section>
       <footer>
-        <div>Total: {Utility.formatCurrency(props.order?.totalCost || 0)}</div>
+        <div>
+          <span>Total</span>
+          <strong>{Utility.formatCurrency(props.order?.totalCost || 0)}</strong>
+        </div>
       </footer>
     </div>
   );
