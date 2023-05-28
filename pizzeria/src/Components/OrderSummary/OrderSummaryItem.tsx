@@ -15,8 +15,8 @@ export const OrderSummaryItem = (props: IOrderSummaryItemProps) => {
       <div>
         Additional toppings:{" "}
         {props.pizzaOrder.extraToppings?.map((t) => (
-          <div>
-            <span key={t.id}>{t.name}</span>
+          <div key={t.id}>
+            <span>{t.name}</span>
             <span>+{Utility.formatCurrency(t.price)}</span>
           </div>
         ))}

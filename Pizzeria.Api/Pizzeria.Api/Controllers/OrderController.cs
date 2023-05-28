@@ -26,6 +26,12 @@ namespace Pizzeria.Api.Controllers
 			return _orderService.Create(order.RestaurantId, order.PizzaId, order.ToppingIds);
 		}
 
+		[HttpDelete("order/{orderId}")]
+		public void DeleteOrder(int orderId)
+		{
+			_orderService.DeleteOrder(orderId);
+		}
+
 		[HttpPost("order/pizza-order")]
 		public void AddPizzaToOrder(AddPizzaToOrder order)
 		{

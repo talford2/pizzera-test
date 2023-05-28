@@ -20,9 +20,6 @@ export const EditPizzaOrderPopup = (props: IEditPizzaOrderPopupProps) => {
 
   const handleToppingChanged = (check: boolean, topping: Topping) => {
     const localPizzaOrder = { ...pizzaOrder } as PizzaOrder;
-
-    console.log("What is this", localPizzaOrder, topping);
-
     if (check) localPizzaOrder.extraToppings.push(topping);
     else
       localPizzaOrder.extraToppings = localPizzaOrder.extraToppings.filter(

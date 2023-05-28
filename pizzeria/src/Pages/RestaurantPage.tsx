@@ -87,6 +87,12 @@ export const RestaurantPage = () => {
     });
   };
 
+  const handleClearOrder = () => {
+    pizzeriaService.DeleteOrder(order?.id || 0).then(() => {
+      setOrder(undefined);
+    });
+  };
+
   return (
     <>
       {showToppingPopup && (
@@ -102,6 +108,7 @@ export const RestaurantPage = () => {
           order={order}
           onRemovePizzaOrder={handleRemoveFromOrder}
           onCloseOrderSummary={() => setShowOrder(false)}
+          onClearOrder={handleClearOrder}
         />
       )}
       <section>

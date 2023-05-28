@@ -8,6 +8,7 @@ export interface IOrderSummaryProps {
   order?: Order;
   onRemovePizzaOrder: (pizzaOrderId: number) => void;
   onCloseOrderSummary: () => void;
+  onClearOrder: () => void;
 }
 
 export const OrderSummary = (props: IOrderSummaryProps) => {
@@ -18,6 +19,7 @@ export const OrderSummary = (props: IOrderSummaryProps) => {
           Order <span>({props.order?.restaurant?.name})</span>
         </h3>
         <Button label="Close" onClick={props.onCloseOrderSummary} />
+        <Button label="Clear" onClick={props.onClearOrder} />
       </header>
       <section>
         {(props.order?.pizzaOrders?.length || 0 > 0) &&

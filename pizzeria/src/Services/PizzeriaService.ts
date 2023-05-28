@@ -58,4 +58,8 @@ export class PizzeriaService {
   GetToppings = async (): Promise<Topping[]> => {
     return (await axios.get(`toppings`)).data;
   };
+
+  DeleteOrder = async (orderId: number): Promise<void> => {
+    return await axios.delete(`order/${orderId}`);
+  };
 }

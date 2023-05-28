@@ -2,10 +2,12 @@
 
 namespace Pizzeria.Repository.Interfaces
 {
-    public interface IOrderRepository
-    {
-        public OrderDto? Get(int id);
+	public interface IOrderRepository
+	{
+		public OrderDto? Get(int id);
 
-        public int Create(OrderDto order);
-    }
+		public int Create(OrderDto order);
+
+		public void Delete(int id);
+	}
 }

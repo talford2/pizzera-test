@@ -54,6 +54,11 @@ namespace Pizzeria.Business.Services.Implementation
 			};
 		}
 
+		public void DeleteOrder(int id)
+		{
+			_orderRepository.Delete(id);
+		}
+
 		// Order always starts with 1 pizza
 		public Order Create(int restaurantId, int pizzaId, int[]? toppingIds)
 		{
