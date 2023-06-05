@@ -56,6 +56,9 @@ namespace Pizzeria.Business.Services.Implementation
 
 		public void DeleteOrder(int id)
 		{
+			var order = Get(id);
+			foreach (var pizzaOrder in order.PizzaOrders.ToArray())
+				_pizzaOrderRepository.Delete(pizzaOrder.Id);
 			_orderRepository.Delete(id);
 		}
 

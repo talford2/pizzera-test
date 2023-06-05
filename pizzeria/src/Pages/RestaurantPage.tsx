@@ -51,46 +51,36 @@ export const RestaurantPage = () => {
     } as PizzaOrder);
   };
 
-  const handleConfirmToOrder = () => {
+  const handleConfirmToOrder = async () => {
     if (!order) {
-      pizzeriaService
-        .CreateNewOrder(
-          restaurantId,
-          pizzaOrder?.pizza?.id || 0,
-          pizzaOrder?.extraToppings.map((t) => t.id)
-        )
-        .then((o) => {
-          setOrder(o);
-        });
+      const o = await pizzeriaService.CreateNewOrder(
+        restaurantId,
+        pizzaOrder?.pizza?.id || 0,
+        pizzaOrder?.extraToppings.map((t) => t.id)
+      );
+      setOrder(o);
     } else {
-      pizzeriaService
-        .AddPizzaToOrder(
-          order.id,
-          pizzaOrder?.pizza?.id || 0,
-          pizzaOrder?.extraToppings.map((t) => t.id)
-        )
-        .then(() => {
-          pizzeriaService.GetOrder(order?.id || 0).then((o) => {
-            setOrder(o);
-          });
-        });
+      await pizzeriaService.AddPizzaToOrder(
+        order.id,
+        pizzaOrder?.pizza?.id || 0,
+        pizzaOrder?.extraToppings.map((t) => t.id)
+      );
+      const o = await pizzeriaService.GetOrder(order?.id || 0);
+      setOrder(o);
     }
     setShowOrder(true);
     setShowToppingPopup(false);
   };
 
-  const handleRemoveFromOrder = (pizzaOrderId: number) => {
-    pizzeriaService.RemovePizzaFromOrder(pizzaOrderId).then(() => {
-      pizzeriaService.GetOrder(order?.id || 0).then((o) => {
-        setOrder(o);
-      });
-    });
+  const handleRemoveFromOrder = async (pizzaOrderId: number) => {
+    await pizzeriaService.RemovePizzaFromOrder(pizzaOrderId);
+    const o = await pizzeriaService.GetOrder(order?.id || 0);
+    setOrder(o);
   };
 
-  const handleClearOrder = () => {
-    pizzeriaService.DeleteOrder(order?.id || 0).then(() => {
-      setOrder(undefined);
-    });
+  const handleClearOrder = async () => {
+    await pizzeriaService.DeleteOrder(order?.id || 0);
+    setOrder(undefined);
   };
 
   return (
